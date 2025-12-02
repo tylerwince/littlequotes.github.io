@@ -258,7 +258,7 @@ header .container {
     gap: 12px;
     width: max-content;
     /* Allow track to expand */
-    animation: marquee-scroll 20s linear infinite;
+    animation: marquee-scroll 15s linear infinite;
     /* Faster scroll */
     padding-left: 12px;
     /* Initial offset */
