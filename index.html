@@ -1,325 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Quotes - They won't sound this little forever</title>
-    <meta name="description" content="Capture the funny, sweet, and profound things your kids say before they grow up. A digital memory jar for parents.">
+    <title>Little Quotes - Save the sounds of their childhood</title>
+    <meta name="description"
+        content="The days are long, but the years are short. Little Quotes helps you capture the funny, sweet, and profound things your kids say forever.">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGKNCVBXZP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YGKNCVBXZP');
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 
-        :root {
-            --accent-color: #5A52DB;
-            --accent-light: #7B75E8;
-            --lavender-bg: #E8E6F7;
-            --text-dark: #1A1A1A;
-            --text-gray: #4A4A4A;
-            --white: #FFFFFF;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            padding: 24px 0;
-            background: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .logo-accent {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 60px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--white) 0%, #FAFAFA 100%);
-        }
-
-        .hero h1 {
-            font-size: clamp(32px, 5vw, 56px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--text-dark);
-        }
-
-        .hero .tagline {
-            font-size: clamp(18px, 3vw, 24px);
-            color: var(--text-gray);
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .hero .description {
-            font-size: clamp(16px, 2vw, 20px);
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .app-store-badge {
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-
-        .app-store-badge:hover {
-            transform: scale(1.05);
-        }
-
-        .app-store-badge img {
-            height: 54px;
-            width: auto;
-        }
-
-        /* Feature Sections */
-        .features {
-            padding: 40px 0;
-        }
-
-        .feature {
-            margin-bottom: 40px;
-            padding: 60px 40px;
-            border-radius: 24px;
-            background: var(--lavender-bg);
-        }
-
-        .feature:nth-child(even) {
-            background: linear-gradient(135deg, var(--lavender-bg) 0%, #F0EFF9 100%);
-        }
-
-        .feature-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .feature h2 {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: var(--text-dark);
-        }
-
-        .feature p {
-            font-size: clamp(16px, 2vw, 20px);
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .feature .subtitle {
-            font-size: clamp(14px, 1.5vw, 16px);
-            color: var(--text-gray);
-            margin-top: 12px;
-            opacity: 0.8;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
-            color: var(--white);
-        }
-
-        .cta h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .cta p {
-            font-size: clamp(18px, 2vw, 24px);
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 0 40px;
-            background: #F8F8F8;
-            text-align: center;
-        }
-
-        footer .logo {
-            display: inline-block;
-            margin-bottom: 24px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            color: var(--text-gray);
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 40px;
-            }
-
-            .feature {
-                padding: 40px 24px;
-                margin-bottom: 24px;
-            }
-
-            .cta {
-                padding: 60px 0;
-            }
-
-            footer {
-                padding: 40px 0 30px;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 16px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feature {
-            animation: fadeIn 0.6s ease-out;
-        }
-    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icon.png">
 </head>
+
 <body>
     <header>
         <div class="container">
-            <a href="/" class="logo">little<span class="logo-accent">Quotes</span>.</a>
+            <a href="/" class="logo-link">
+                <picture>
+                    <source srcset="assets/littleQuotes-darkMode.png" media="(prefers-color-scheme: dark)">
+                    <img src="assets/littleQuotes-lightMode.png" alt="Little Quotes" class="logo">
+                </picture>
+            </a>
+            <a href="https://apps.apple.com/app/little-quotes/id6738262922" class="app-store-badge header-badge">
+                <picture>
+                    <source srcset="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" media="(prefers-color-scheme: dark)">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                        alt="Download on the App Store">
+                </picture>
+            </a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>little<span class="logo-accent">Quotes</span>.</h1>
-            <p class="tagline">They won't sound this little forever.</p>
-            <p class="description">Capture the funny, sweet, and profound things they say before they grow up.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 class="animate-in delay-1">They won't sound this little forever.</h1>
+                        <p class="lead animate-in delay-2">Kids say the wildest, sweetest, most profound things. But in
+                            the chaos of parenting, those little moments fade fast.</p>
+                        <p class="lead animate-in delay-2">Little Quotes makes sure you keep them forever.</p>
+                    </div>
 
-            <a href="https://apps.apple.com/app/little-quotes/id6738262922" class="app-store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1234567890" alt="Download on the App Store">
-            </a>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <div class="feature">
-                <div class="feature-content">
-                    <h2>Keep the giggle, not just the quote.</h2>
-                    <p>Save voice recordings, videos, and photos to remember exactly how it felt.</p>
+                    <!-- Marquee Animation -->
+                    <div class="hero-marquee-container animate-in delay-2">
+                        <div class="hero-marquee-track">
+                            <!-- Doubled for seamless loop -->
+                            <img src="assets/hero-images/1.png" alt="App Screenshot 1">
+                            <img src="assets/hero-images/2.png" alt="App Screenshot 2">
+                            <img src="assets/hero-images/3.png" alt="App Screenshot 3">
+                            <img src="assets/hero-images/4.png" alt="App Screenshot 4">
+                            <img src="assets/hero-images/5.png" alt="App Screenshot 5">
+                            <!-- Duplicate set -->
+                            <img src="assets/hero-images/1.png" alt="App Screenshot 1">
+                            <img src="assets/hero-images/2.png" alt="App Screenshot 2">
+                            <img src="assets/hero-images/3.png" alt="App Screenshot 3">
+                            <img src="assets/hero-images/4.png" alt="App Screenshot 4">
+                            <img src="assets/hero-images/5.png" alt="App Screenshot 5">
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="feature">
-                <div class="feature-content">
-                    <h2>Every little's story, beautifully told.</h2>
-                    <p>Create a dedicated journal for each of your littles.</p>
-                    <p class="subtitle">(and share it with Grandma)</p>
+        <!-- Features Timeline -->
+        <section class="timeline-section" style="background-color: var(--accent-warm);">
+            <!-- Decorative Blobs -->
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+
+            <div class="container timeline-container">
+                <div
+                    style="text-align: center; max-width: 570px; margin: 0 auto 100px; position: relative; z-index: 2;">
+                    <h2>Someday, you'll want to remember this.</h2>
+                    <p class="lead">Little Quotes helps you capture their childhood while it's happening.</p>
+                </div>
+
+                <div class="timeline-line"></div>
+
+                <!-- Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Capture it in seconds.</h3>
+                        <p>Kids don't wait for you to find a menu button. Simply pull down to record a quote instantly.
+                            Type the words, snap a photo, or record their voice—exactly as it happened.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-spacer"></div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Hear the giggle, see the sparkle.</h3>
+                        <p>Text isn't always enough. Attach voice recordings to hear their little lisp, videos to see
+                            their expressions, and photos to remember exactly where you were.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>A storybook written in real-time.</h3>
+                        <p>Create a dedicated journal for each child. Watch their timeline grow from toddler
+                            babble to big-kid logic. Every quote becomes a chapter in their story.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-spacer"></div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>It takes a village.</h3>
+                        <p>Invite your partner, grandparents, and caregivers to contribute. Everyone who loves them can help capture the moments that matter.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 (Final CTA) -->
+                <div class="timeline-item">
+                    <div class="timeline-content" style="text-align: center;">
+                        <h3>Start saving the sounds of childhood.</h3>
+                        <p style="margin-bottom: 32px;">Download Little Quotes and start building their story today.</p>
+                        <a href="https://apps.apple.com/app/little-quotes/id6738262922" class="app-store-badge">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1234567890"
+                                alt="Download on the App Store">
+                        </a>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-spacer"></div>
                 </div>
             </div>
-
-            <div class="feature">
-                <div class="feature-content">
-                    <h2>A time machine for your pocket.</h2>
-                    <p>Instantly find that one hilarious thing they said about "spaghetti" three years ago.</p>
-                </div>
-            </div>
-
-            <div class="feature">
-                <div class="feature-content">
-                    <h2>Watch them grow, one quote at a time.</h2>
-                    <p>Scroll back through the years and see how their little quotes about the world have changed.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>Don't let their little voice fade away.</h2>
-            <p>Download Little Quotes today and keep their childhood safe forever.</p>
-
-            <a href="https://apps.apple.com/app/little-quotes/id6738262922" class="app-store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1234567890" alt="Download on the App Store">
-            </a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <a href="/" class="logo">little<span class="logo-accent">Quotes</span>.</a>
-
-            <div class="footer-links">
-                <a href="https://tylerwince.com/littlequotes/privacy">Privacy Policy</a>
-                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+            <div class="footer-content">
+                <a href="/" class="logo-link">
+                    <picture>
+                        <source srcset="assets/littleQuotes-darkMode.png" media="(prefers-color-scheme: dark)">
+                        <img src="assets/littleQuotes-lightMode.png" alt="Little Quotes" class="logo"
+                            style="opacity: 0.7;">
+                    </picture>
+                </a>
+                <div class="footer-links">
+                    <a href="https://tylerwince.com/littlequotes/privacy">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+                </div>
             </div>
-
             <p class="copyright">&copy; 2024 Little Quotes. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Handle manual scrolling on marquee
+        const marqueeContainer = document.querySelector('.hero-marquee-container');
+        const marqueeTrack = document.querySelector('.hero-marquee-track');
+        let scrollTimeout;
+
+        if (marqueeContainer && marqueeTrack) {
+            marqueeContainer.addEventListener('scroll', function() {
+                // Pause animation while scrolling
+                marqueeTrack.style.animationPlayState = 'paused';
+
+                // Clear existing timeout
+                clearTimeout(scrollTimeout);
+
+                // Resume animation after user stops scrolling
+                scrollTimeout = setTimeout(function() {
+                    marqueeTrack.style.animationPlayState = 'running';
+                }, 1000);
+            });
+        }
+    </script>
 </body>
+
 </html>
